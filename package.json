@@ -7,11 +7,14 @@
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "deploy": "node ./gh-pages.js"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "^1.0.0-next.26",
     "@sveltejs/kit": "next",
+    "gh-pages": "^3.2.3",
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.6",
     "svelte-preprocess": "^4.9.4",
