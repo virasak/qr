@@ -4,7 +4,7 @@
   let json = false;
 </script>
 
-<QrCode {text} {json} />
+<QrCode code={json ? JSON.parse(`"${text}"`) : text} />
 <p>
   <input type="text" bind:value={text} placeholder="Enter QR code here" />
   <input type="checkbox" bind:value={json} /> JSON string

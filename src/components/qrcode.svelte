@@ -1,27 +1,24 @@
 <script lang="ts">
   import { toCanvas } from "qrcode";
-  export let text = "";
-  export let width = 200;
-  export let height = 200;
-  export let json = false;
+  export let code = "";
+  export let size = 200;
 
   let canvas: HTMLCanvasElement;
 
   $: if (canvas) {
-    if (text) {
-      let code = json ? JSON.parse(`"${text}"`) : text;
-      toCanvas(canvas, code.trim(), { width });
+    if (code) {
+      toCanvas(canvas, code, { width: size });
     } else {
       let ctx = canvas.getContext("2d");
-      ctx.clearRect(0, 0, width, height);
+      ctx.clearRect(0, 0, size, size);
       ctx.font = "24px serif";
       ctx.textAlign = "center";
-      ctx.fillText("No Text", width / 2, height / 2);
+      ctx.fillText("No Text", size / 2, size / 2);
     }
   }
 </script>
 
-<canvas bind:this={canvas} {width} {height} />
+<canvas bind:this={canvas} width={size} height={size} />
 
 <style>
   canvas {
