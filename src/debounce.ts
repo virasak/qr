@@ -1,12 +1,12 @@
-function debounce<T extends (...params: any[]) => any>(func: T, timeout: number) {
-    let t = null;
+type Timeout = ReturnType<typeof setTimeout> | undefined;
 
-    const f = (...args: any[]) => {
+function debounce<T extends (...params: any[]) => any>(func: T, timeout: number) {
+    let t: Timeout;
+
+    return (...args: Parameters<T>): void => {
         clearTimeout(t);
         t = setTimeout(() => func.apply(null, args), timeout);
     };
-
-    return f as (...params: Parameters<T>) => ReturnType<T>;
 }
 
 export default debounce;
