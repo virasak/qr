@@ -1,12 +1,22 @@
 <script lang="ts">
-  import QrCode from "../components/qrcode.svelte";
-  let text = "";
+  import debounce from "../debounce";
+
+  import QRCode from "../components/QRCode.svelte";
+  let code = "";
   let json = false;
+
+  const handleChange = debounce((value: string) => {
+    code = json ? JSON.parse(`"${value}"`) : value;
+  }, 200);
 </script>
 
-<QrCode code={json ? JSON.parse(`"${text}"`) : text} />
+<QRCode {code} />
 <p>
-  <input type="text" bind:value={text} placeholder="Enter QR code here" />
+  <input
+    type="text"
+    on:keyup={(e) => handleChange(e.currentTarget.value)}
+    placeholder="Enter QR code here"
+  />
 </p>
 <p>
   <label>
