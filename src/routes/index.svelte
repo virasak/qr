@@ -7,12 +7,19 @@
 <QrCode code={json ? JSON.parse(`"${text}"`) : text} />
 <p>
   <input type="text" bind:value={text} placeholder="Enter QR code here" />
-  <input type="checkbox" bind:value={json} /> JSON string
+</p>
+<p>
+  <label>
+    <input type="checkbox" bind:value={json} /> JSON string
+  </label>
 </p>
 
 <style>
   p {
     text-align: center;
+  }
+  label {
+    white-space: nowrap;
   }
   input[type="text"] {
     padding: 0.5em 1em;
