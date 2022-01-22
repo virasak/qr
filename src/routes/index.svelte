@@ -17,5 +17,6 @@
   input[type="text"] {
     padding: 0.5em 1em;
     width: 45em;
+    max-width: 90%;
   }
 </style>
