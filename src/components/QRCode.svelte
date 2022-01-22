@@ -2,6 +2,7 @@
   import { toCanvas } from "qrcode";
   export let code = "";
   export let size = 200;
+  export let placeholder = "NO TEXT";
 
   let canvas: HTMLCanvasElement;
 
@@ -13,7 +14,8 @@
       ctx.clearRect(0, 0, size, size);
       ctx.font = "24px serif";
       ctx.textAlign = "center";
-      ctx.fillText("No Text", size / 2, size / 2);
+      ctx.fillStyle = "#888";
+      ctx.fillText(placeholder, size / 2, size / 2);
     }
   }
 </script>
@@ -22,7 +24,7 @@
 
 <style>
   canvas {
-    border: 1px solid rgb(104, 57, 57);
+    border: 1px solid #ccc;
     display: block;
     margin: 2em auto;
   }
