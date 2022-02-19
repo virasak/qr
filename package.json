@@ -8,7 +8,7 @@
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "deploy": "gh-pages -d build -r https://github.com/virasak/qr.git -b gh-pages -u 'Virasak Dungsrikaew <virasak@gmail.com>' -t"
+    "deploy": "gh-pages -d build -t -r git@github.com:virasak/qr.git"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
